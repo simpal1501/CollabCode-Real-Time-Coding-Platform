@@ -18,7 +18,8 @@ const Newproject = () => {
   const navigate = useNavigate();
   const userId = user?.uid;
   const selectedTeam = useSelector(state => state.meeting.selectedTeam);
-
+  const [language, setLanguage] = useState('python');
+  const [folderName, setFolderName] = useState('');
 
   useEffect(() => {
     if (!codeGenerated) {
@@ -60,17 +61,13 @@ const Newproject = () => {
     }
   };
 
-
-
   const handleSolo = async () => {
     const name = workspaceName;
-    const fileName = 'topic';
-    const language = 'python';
+    const fileName = 'Main';
     const username = user?.displayName; 
     const photoUrl = user?.photoURL || ''; 
 
     try {
-      console.log(userId);
       const response = await axiosInstance.post(`/api/v1/project/create/solo/${userId}`, {
         name,
         fileName,
@@ -78,22 +75,18 @@ const Newproject = () => {
         username,
         photoUrl,
       });
-      console.log(response);
       const meetingId = response.data.workspace._id;
       dispatch(setMeetingId(meetingId));
-      
       navigate(`/editor/${meetingId}`);
     } catch (error) {
       console.error('Error creating workspace:', error.message);
     }
-};
-
+  };
 
   const handleNextStep = async () => {
     setStep(step + 1);
     const name = workspaceName;
-    const fileName = 'topic';
-    const language = 'python';
+    const fileName = 'Main';
     const username = user?.displayName;
     const photoUrl = user?.photoURL;
 
@@ -101,20 +94,13 @@ const Newproject = () => {
       const response = await axiosInstance.post(`/api/v1/project/create/team/${userId}`, { name, fileName, language, username, photoUrl });
       const meetingId = response.data.workspace._id;
       const { team } = response.data.workspace;
-      console.log(team);
-      console.log(response);
       dispatch(setTeam(team));
-      console.log(meetingId);
-      // console.log(team);
       dispatch(setMeetingId(meetingId));
       dispatch(setHostId(response.data.workspace.host.id));
-      console.log(response.data.workspace.host);
       navigate(`/editor/${meetingId}`);
     } catch (error) {
       console.error('Error creating workspace:', error.message);
-
     }
-
   };
 
   const joinTeam = async () => {
@@ -233,9 +219,14 @@ const Newproject = () => {
 
                   <h3 className="font-bold text-lg">Create a Workspace</h3>
 
-                  <div className=' flex gap-3'>
+                  <div className=' flex flex-col gap-3'>
                     <input type="text" value={workspaceName} onChange={handleWorkspaceNameChange} onKeyDown={handleKeydownSolo} className="input input-bordered input-primary w-full max-w-xs" placeholder="workspace name" />
-
+                    <select value={language} onChange={(e) => setLanguage(e.target.value)} className="select select-primary w-full max-w-xs">
+                      <option value="python">Python</option>
+                      <option value="java">Java</option>
+                      <option value="cPlusPlus">C++</option>
+                      <option value="javascript">JavaScript</option>
+                    </select>
                   </div>
                 </div>
 
@@ -253,6 +244,12 @@ const Newproject = () => {
                 <div className="flex flex-col gap-6">
                   <h3 className="font-bold text-lg">Workspace Details</h3>
                   <input type="text" value={workspaceName} onChange={handleWorkspaceNameChange} onKeyDown={handleKeydownTeam} placeholder="Workspace Name ( Atleast 6 characters)" className="input input-bordered input-primary w-full max-w-xs" />
+                  <select value={language} onChange={(e) => setLanguage(e.target.value)} className="select select-primary w-full max-w-xs">
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="cPlusPlus">C++</option>
+                    <option value="javascript">JavaScript</option>
+                  </select>
                   <button className="btn bg-primary text-primary-content hover:text-white" onClick={handleNextStep} disabled={isDisabled}>Next</button>
                 </div>
               </>
