@@ -112,10 +112,14 @@ io.on('connection', (socket) => {
 
 const start = async () => {
     try {
+        console.log('Attempting to connect to MongoDB...');
         await connectDB(process.env.MONGO_URL);
+        console.log('Connected to MongoDB successfully!');
         server.listen(port, () => console.log(`Server is listening on ${port}`));
     } catch (error) {
-        console.log('Error connecting to database or listening on port:', error);
+        console.error('CRITICAL ERROR: Failed to start server!');
+        console.error(error);
+        process.exit(1); // Force the process to fail so Render shows the error
     }
 };
 
