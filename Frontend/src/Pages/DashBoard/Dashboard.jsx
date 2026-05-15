@@ -6,7 +6,7 @@ import MainDashBoard from './MainDashBoard'
 import NewProject from './Newproject'
 import Savedfile from './Savedfile'
 import Stats from './Stats'
-import { About } from '../index';
+import { About, Chatbot } from '../index';
 import { useFirebase } from '../../Context/FirebaseContext';
 
 const Dashboard = () => {
@@ -40,6 +40,11 @@ const Dashboard = () => {
                 <Route path='saved' element={<Savedfile />} />
                 <Route path='stats' element={<Stats />} />
                 <Route path='help' element={<About />} />
+                <Route path='chat' element={<Chatbot />} />
+                <Route path='workspace' element={<Savedfile />} />
+                <Route path='team' element={<NewProject />} />
+                <Route path='solo-options' element={<NewProject />} />
+                <Route path='languages' element={<NewProject />} />
             </Routes>
 
         </>
