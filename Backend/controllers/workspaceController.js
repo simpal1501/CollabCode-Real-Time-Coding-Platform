@@ -16,7 +16,7 @@ const createSoloWorkspace = async (req, res) => {
     const { name, fileName, language, username, photoUrl } = req.body; // Added username and photoUrl
     const { userId } = req.params;
 
-    if (!name || !fileName || !language || !userId || !username || !photoUrl) { // Validate all inputs
+    if (!name || !fileName || !language || !userId) { // Validate mandatory inputs
         return res.status(StatusCodes.BAD_REQUEST).json({ message: 'Please provide all project details' });
     }
 
@@ -38,7 +38,7 @@ const createTeamWorkspace = async (req, res) => {
     const { name, fileName, language, username, photoUrl } = req.body;
     const { userId } = req.params;
 
-    if (!name || !fileName || !language || !userId || !username || !photoUrl) { 
+    if (!name || !fileName || !language || !userId) { 
         return res.status(StatusCodes.BAD_REQUEST).json({ message: 'Please provide all project details' });
     }
 
