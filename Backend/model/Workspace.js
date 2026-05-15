@@ -35,11 +35,11 @@ const WorkspaceSchema = new mongoose.Schema({
         },
         username: {
             type: String,
-            required: true
+            required: false
         },
         photoUrl: {
             type: String,
-            required: true
+            required: false
         },
         status:{
             type: String,
@@ -55,11 +55,11 @@ const WorkspaceSchema = new mongoose.Schema({
         },
         username: {
             type: String,
-            required: true
+            required: false
         },
         photoUrl: {
             type: String,
-            required: true
+            required: false
         }
     },
     chat: [{
@@ -74,11 +74,11 @@ const WorkspaceSchema = new mongoose.Schema({
         },
         username: {
             type: String,
-            required: true
+            required: false
         },
         photoUrl: {
             type: String,
-            required: true
+            required: false
         }
     }]
 });
