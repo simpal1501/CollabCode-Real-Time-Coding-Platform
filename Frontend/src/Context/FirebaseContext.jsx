@@ -19,15 +19,15 @@ export const FirebaseProvider = (props) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-   onAuthStateChanged(auth,(user) => {
-      if(user){
-        setUser(user)
-      }else{
-        setUser(null)
-      }
-    });
-
-    
+    if (auth) {
+        onAuthStateChanged(auth,(user) => {
+           if(user){
+             setUser(user)
+           }else{
+             setUser(null)
+           }
+         });
+    }
   }, []);
 
   const signupUserwithEmailAndPassword = (email, password) => {
