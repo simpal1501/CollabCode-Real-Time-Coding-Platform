@@ -1,4 +1,4 @@
-CollabCode-Real-Time-Code-Editor
+*CollabCode*-Real-Time-Code-Editor
 
 **CollabCode** is a high-performance, real-time collaborative code editor designed for modern developers. Built with the MERN stack and powered by WebSockets, it allows multiple developers to code together, communicate via an AI assistant, and manage projects seamlessly.
 
