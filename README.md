@@ -78,9 +78,6 @@
 
 ---
 
-## 👨‍💻 Developed By
 
-**Harsh Kumar**   
-[LinkedIn](https://www.linkedin.com/in/harsh-kumar-b41b44265/)
 
 ---
