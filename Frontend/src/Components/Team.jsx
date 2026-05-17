@@ -15,6 +15,29 @@ const Team = () => {
                <img src="/shape.svg" alt="shape" className='absolute inset-0 w-screen h- object-cover ' />
                 <div id="main-history" data-aos="fade-in" >
                    <div id="history-section1" class="history-section1">
+                     <figure class="sub-history">
+   <div class="image" data-aos="zoom-in">
+      <div className='h-56 w-full bg-blue-700 flex items-center justify-center text-white text-4xl font-bold'>PK</div>
+   </div>
+
+   <figcaption className=' bg-slate-900 '>
+      <h3 className='text-2xl font-heading font-bold'>Prince Kumar Saw</h3>
+
+      <h4 className='text-lg font-sans'>Frontend Developer</h4>
+
+      <div className=' w-full py-8 bg-transparent flex gap-8 justify-center items-center '>
+
+         <Link to='https://github.com/Prince-Kumar-Saw'>
+            <FontAwesomeIcon icon={faGithub} className='text-white h-8 w-8 ' />
+         </Link>
+
+         <Link to='http://www.linkedin.com/in/prince-saw-920b4129a'>
+            <FontAwesomeIcon icon={faLinkedin} className='text-white h-8 w-8' />
+         </Link>
+
+      </div>
+   </figcaption>
+</figure>
                       <figure class="sub-history">
                          <div class="image" data-aos="zoom-in">
                             <div className='h-56 w-full bg-slate-800 flex items-center justify-center text-white text-4xl font-bold'>HK</div>
@@ -28,6 +51,29 @@ const Team = () => {
                             </div>
                          </figcaption>
                       </figure>
+                      <figure class="sub-history">
+   <div class="image" data-aos="zoom-in">
+      <div className='h-56 w-full bg-pink-700 flex items-center justify-center text-white text-4xl font-bold'>SK</div>
+   </div>
+
+   <figcaption className=' bg-slate-900 '>
+      <h3 className='text-2xl font-heading font-bold'>Simpal Kumari</h3>
+
+      <h4 className='text-lg font-sans'>Frontend Developer</h4>
+
+      <div className=' w-full py-8 bg-transparent flex gap-8 justify-center items-center '>
+
+         <Link to='https://github.com/simpal1501'>
+            <FontAwesomeIcon icon={faGithub} className='text-white h-8 w-8 ' />
+         </Link>
+
+         <Link to='https://www.linkedin.com/in/simpal-kumari-76b050310?utm_source=share_via&utm_content=profile&utm_medium=member_android'>
+            <FontAwesomeIcon icon={faLinkedin} className='text-white h-8 w-8' />
+         </Link>
+
+      </div>
+   </figcaption>
+</figure>
 
                       <figure class="sub-history">
                          <div class="image" data-aos="zoom-in">
